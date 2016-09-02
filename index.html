@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <title>reiki</title>
+  <style>
+    body {
+      width: 980px;
+      margin: auto;
+    }
+
+    .box {
+      margin-bottom: 20px;
+      text-align: center;
+      border: 1px solid #e8e8e8;
+      box-shadow: 1px 1px 3px #eee;
+    }
+
+    .box .link {}
+
+    .box .thumb {
+      padding: 20px;
+    }
+
+    .box .thumb img {
+      max-width: 100%;
+    }
+
+    .box-mobile .thumb {
+      display: inline-block;
+      max-height: 568px;
+    }
+    .qrcode{
+      display: inline-block;
+      padding: 20px 0;
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box box-pc">
+    <h1>美博会</h1>
+    <a class="link" href="http://dev.chinainternationalbeauty.com/gz/index.html">http://dev.chinainternationalbeauty.com/gz/index.html</a>
+    <div class="thumb">
+      <img src="./imgs/1.png" alt="美博会">
+    </div>
+  </div>
+  <div class="box box-pc">
+    <h1>约客商城</h1>
+    <a class="link" href="http://www.thewap.cn/Demo/home/">http://www.thewap.cn/Demo/home/</a>
+    <div class="thumb">
+      <img src="./imgs/2.png" alt="约客商城">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>桔客宣传页</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/3.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>万象之约</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/4.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>MOCO巴巴爸爸</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/5.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>蔡司爱心接力活动</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/6.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>万象城亮灯仪式</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/7.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>天下邀请函</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/8.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>万通翻转</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/9.png" alt="桔客宣传页">
+    </div>
+  </div>
+  <div class="box box-mobile">
+    <h1>蝶舞飞花</h1>
+    <div class="qrcode"></div>
+    <div class="thumb">
+      <img src="./imgs/10.png" alt="桔客宣传页">
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./qrcode.js"></script>
+  <script>
+    window.onload = function() {
+      var textArr = [
+        'http://www.thewap.cn/Demo/TBTX/circle/',
+        'http://www.thewap.cn/Demo/wanxiang/',
+        'http://201607moco.gz.e2capp.com/index.php',
+        'http://www.thewap.cn/Demo/ZEISSRice/interactive1.html',
+        'http://www.thewap.cn/Demo/christmaslights/index.php',
+        'http://www.thewap.cn/Demo/TBTX/',
+        'http://www.thewap.cn/Demo/wtfz/',
+        'http://www.thewap.cn/Demo/animations/',
+      ]
+      document.querySelectorAll(".qrcode").forEach(function(el, i){
+        new QRCode(el, {
+          text: textArr[i],
+          width: 160,
+          height: 160,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
