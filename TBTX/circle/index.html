@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>桔客 BOC博采网络</title>
+    <script src="../js/zepto.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./circle.css" />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth/640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)){
+            var version = parseFloat(RegExp.$1);
+            if(version>2.3){  // andriod 2.3
+                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+            }else{
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else { // 其他系统
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+</head>
+<body>
+<div class="fm_stage">
+    <section class="fm">
+        <img src="./img/boc_logo.png" class="abs boc_logo" alt="桔客 博采网络"/>
+        <img src="./img/border_circle.png" class="abs border_circle1 Clockwise_5s" />
+        <img src="./img/border_circle.png" class="abs border_circle1 Counterclockwise_5s" />
+        <img src="./img/border_circle.png" class="abs border_circle2 Counterclockwise_5s" />
+        <div class="circle_box">
+            <div class="abs circle1 rel">
+                <div class="circle1_top rel"><img src="./img/left_top1.png" class="Clockwise_12s"/></div>
+                <div class="circle1_bottom rel"><img src="./img/left_top1.png" class="Clockwise_12s"/></div>
+            </div>
+            <div class="abs circle2 rel">
+                <div class="circle2_top rel"><img src="./img/mid_top.png" class="Counterclockwise_10s"/></div>
+                <div class="circle2_bottom rel"><img src="./img/mid_top.png" class="Counterclockwise_10s"/></div>
+            </div>
+            <div class="abs circle3 rel">
+                <div class="circle3_top rel"><img src="./img/right_top.png" class="Clockwise_7s"/></div>
+                <div class="circle3_bottom rel"><img src="./img/right_top.png" class="Clockwise_7s"/></div>
+            </div>
+        </div>
+        <div class="circle_bg">
+            <img src="./img/mid_small.png" class="abs mid_small Clockwise_7s" />
+            <img src="./img/mask.png" class="abs mask"/>
+            <img src="./img/right_bottom.png" class="abs right_bottom Counterclockwise_10s" />
+            <div class="abs circle_red"></div>
+        </div>
+        <img src="./img/dot.png" class="abs dot" alt="桔客 博采网络"/>
+        <img src="./img/txt_click.png" class="abs txt_click" alt="桔客 博采网络"/>
+        <img src="./img/btn_show.png" class="abs btn_show" alt="桔客 博采网络"/>
+        <div class="abs link_box">
+            <p class="lb_word1">定制场景</p>
+            <p class="lb_word2">移动价值创新应用引导者</p>
+            <a href="#" class="lb_btn1">更多场景应用请点击</a>
+            <a href="tel:400-800-5790" class="lb_btn2">咨询 400-800-5790</a>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $(document).ready(function() {
+            var body_height = document.documentElement.clientHeight;
+            $(".fm_stage,.fm").css("height",body_height);
+            $(".btn_show").on("touchstart","",function(){
+                $(".link_box").addClass("toshow");
+                $(".circle_box,.border_circle1").one("touchstart",function(){
+                    $(".link_box").removeClass("toshow");
+                });
+            })
+        });
+    });
+</script>
+</body>
+</html>

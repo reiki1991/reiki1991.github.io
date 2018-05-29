@@ -1,0 +1,79 @@
+@charset "utf-8";
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu
+{ margin:0; padding:0; }
+body { font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif; font-size: 12px; }
+a { text-decoration:none; }
+img { border: none; }
+.rel { position: relative; }
+.abs { position: absolute; }
+.fl { float: left; }
+.fr { float: right; }
+ul li { list-style: none; }
+.clr { line-height: 0; height: 0; clear: both; font-size: 0; overflow: hidden}
+.clearfix:after { display: block; height: 0; visibility: hidden; clear: both; content: "."; }
+.no_select { -moz-user-select:none; -webkit-user-select:none; user-select:none;}
+html { -webkit-text-size-adjust: none; } /* 禁用iPhone中Safari的字号自动调整 */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block;} /* 设置HTML5元素为块 */
+img { max-width: 100%; height: auto; }/* 设置图片视频等自适应调整 */
+strong, span,label { display: inline-block; vertical-align: middle; }
+select { -webkit-appearance: none; line-height: 24px; border-radius: 0; /* mobile-select设置*/ }
+.hide { display: none; }
+
+/*--总屏幕的slide--*/
+.fm { width: 100%; position: relative; overflow:hidden; }
+.fm1 { background-color: #E8E9E1; }
+.up_arrow { width: 30px; position: absolute; left: 47%; }
+/*落款 element*/
+.boc_logo { width: 58%; top: 9%; left: 21%;}
+.dot { width: 4%; left: 9%; bottom: 10%; -webkit-animation: dot .8s alternate linear infinite;  }
+@-webkit-keyframes dot {
+    0% {  -webkit-transform:scale(.5) }
+    100% { -webkit-transform:scale(1.4) }
+}
+/**.circle_box**/
+.circle_box, .circle_bg { position: absolute; width: 570px; height: 400px; bottom: 4%; left: 40%; margin: -200px 0 0 -285px; }
+.circle1,.circle2,.circle3,.circle1 img,.circle2 img,.circle3 img { border-radius: 50%; }
+.circle1 { width: 300px; }
+.circle1_top,.circle1_bottom { height: 150px; overflow: hidden;}
+.circle1_top { z-index: 10; }
+.circle1_bottom { z-index: 15; }
+.circle1_bottom img { margin-top: -150px; }
+.circle2 { width: 310px; margin: -258px 0 0 164px; }
+.circle2_top,.circle2_bottom { height: 155px; overflow: hidden; }
+.circle2_top { z-index: 15; }
+.circle2_bottom { z-index: 10; }
+.circle2_bottom img { margin-top: -155px; }
+.circle3 { width: 220px; margin: -197px 0 0 329px; }
+.circle3_top,.circle3_bottom { height: 110px; overflow: hidden; }
+.circle3_top { z-index: 20; }
+.circle3_bottom { z-index: 5; }
+.circle3_bottom img { margin-top: -110px; }
+/**.circle_box**/
+.circle_red { width: 316px; height: 316px; border-radius: 50%; top: 39px; left: 162px; background-color: #FD5210; }
+.mid_small { width: 194px; height: 194px; top: 98px; left: 223px; position: absolute;}
+@media screen and (min-width: 370px) {
+    .circle_box {left: 49%; bottom: 12%;}
+    .circle2 { width: 350px; margin: -251px 0 0 117px; }
+    .circle2_top,.circle2_bottom { height: 175px; }
+    .circle2_bottom img { margin-top: -175px; }
+    .circle1 { width: 310px; margin-left: -8%;}
+    .circle1_bottom { padding-bottom: 10px; }
+    .circle_red { width: 360px; height: 360px; top:1px; left: 145px; }
+}
+@media screen and (max-height: 481px) {
+    .circle_box { bottom: 2%; }
+    .boc_logo { top: 5%; }
+    .circle_red { margin-top: 47px; }
+}
+/*circlr animation*/
+.Clockwise_12s { -webkit-animation: Clockwise 12s linear infinite; }
+.Counterclockwise_10s { -webkit-animation: Counterclockwise 10s linear infinite; }
+.Clockwise_7s { -webkit-animation: Clockwise 7s linear infinite; }
+@-webkit-keyframes Clockwise{
+    0% {  -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}
+@-webkit-keyframes Counterclockwise{
+    0% {  -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(-360deg); }
+}

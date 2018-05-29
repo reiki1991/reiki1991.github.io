@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>以碗接力 让爱满盛</title>
+    <meta name="description" content="以碗接力 让爱满盛" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="author" content="Reiki" />
+    <link rel="stylesheet" href="./css/interactive.css">
+</head>
+<body class="int_bg">
+<div class="int_share"></div><!--分享提示-->
+<section class="interactive2_main">
+    <img class="int_logoblue" src="./imgs/int_logoblue.png" alt="ZEISS logo">
+    <img class="int_logored" src="./imgs/int_logored.png" alt="免费午餐 logo">
+    <div class="interactive2_main1">
+        <img class="int_img1" src="./imgs/int2_img1.jpg" alt="以碗接力">
+        <p class="int_word int2_txt1">拍下你的手，<br>将这份午餐送到贫困学童手中！</p>
+        <div class="int_txtC"><button class="int_btn int_hand int2_file int2_btn1">拍照上传</button></div>
+    </div>
+    <input type="file" id="int2_file" name="file"/>
+    <div class="interactive2_main2">
+        <div class="int2_cvswarp">
+            <canvas id="int2_cvs" width="460" height="480" style="width:230px;height: 240px;">您的浏览器不支持canvas绘图</canvas>
+            <p class="int_word int2_txt2">缩放、移动你所上传的图片<br>调至最佳位置！</p>
+            <img id="int2_rice" src="./imgs/int2_rice.png" alt="以碗接力">
+        </div>
+        <div class="int_txtC"><button class="int_btn int2_file">重新拍照</button><button class="int_btn int2_sub">确认上传</button></div>
+    </div>
+</section>
+<section  class="interactive3_main hide">
+    <img class="int_logoblue" src="./imgs/int_logoblue.png" alt="ZEISS logo">
+    <img class="int_logored" src="./imgs/int_logored.png" alt="免费午餐 logo">
+    <div class="interactive3_main">
+        <div class="int_imgwarp"><img id="int_rice" class="int_rice" src="" alt="您的爱心午餐"></div>
+        <img class="int3_img2" src="./imgs/int4_txt1.png" alt="感谢您的爱心 免费午餐将由蔡司替您送出">
+        <div class="int_word int3_txt1">每位参与者都将为一位贫困学童送上爱心午餐！<br>马上分享<br>让好朋友一起来传递爱心吧！</div>
+        <div class="int_txtC"><button class="int_btn int_hand" id="btn_share">分享好友</button></div>
+    </div>
+</section>
+<script src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/fileUp/mobileBUGFix.mini.js" ></script>
+<script type="text/javascript" src="js/fileUp/exif.js"></script>
+<script type="text/javascript" src="js/fileUp/uploadImage.js" ></script>
+<script src="js/hammer.js"></script>
+<script src="js/interactive.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+@charset "utf-8";
+/*--reset--*/
+*{ margin:0; padding:0; }
+html { -webkit-text-size-adjust: none; } /* 禁用iPhone中Safari的字号自动调整 */
+body { font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif; font-size: 12px; background-color: #FFF; color: #333; position: relative;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block;} /* 设置HTML5元素为块 */
+img {max-width: 100%;height: auto;}/* 设置图片视频等自适应调整 */
+input, textarea, select { -webkit-appearance: none; border-radius: 0; outline: none; /* mobile-select设置*/ }
+ul li { list-style: none; }
+a{text-decoration:none;color: #333333;}
+a:active{color: #008ad0;}
+.fl{float:left;}
+.fr{float:right;}
+.rel { position: relative; }
+.abs { position: absolute; }
+/*-提示弹出层 tip_wrap-*/
+.tip_box,.prompt,.g_load { position: fixed; z-index: 3300; left: 50%; top: 30%; width: 280px; margin-left: -150px; padding: 10px; text-align: center; color: #FFFFFF; }
+.tip_default { background-color: rgba(144, 140, 140, 0.8); border: 2px solid rgba(144, 140, 140, 0.4); border-radius: 3px;}
+.tip_green { background-color: rgba(28, 165, 71,.85); border: 2px solid rgba(28, 165, 71,.85); border-radius: 3px;}
+.tip_red { background-color: rgba(255, 0, 0,.75); border: 2px solid rgba(255, 0, 0,.9); border-radius: 3px;}
+/*--public--*/
+.hide { display: none;}
+html,body {height: 100%;overflow-y: hidden;}
+body { max-width: 640px; margin: 0 auto; }
+/*.int_fileupwarp{ position: relative;}
+.int_fileupwarp input{position: absolute;left: 0;top: 0;width: 100%;height: 100%;!* opacity: 0; *!}*/
+.int_txtC { text-align: center; }
+.int_share {display: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;bottom: 0;background: rgba(0,0,0,.85) url(../imgs/int_share.png) 100% 0 no-repeat;background-size: 41% auto;z-index: 100;}
+.int_bg { background: url(../imgs/int_bg.jpg) no-repeat; background-size: 100% 100%; }
+.int_logoblue {position: absolute;padding-top: 5%;left: 5%;width: 12%;}
+.int_logored {position: absolute;padding-top: 5%;right: 5%;width: 23%;}
+.int_word {font-size: 12px;line-height: 16px;text-align: center;font-weight: bold;}
+.int_btn {display: inline-block;border:none;background-color: #008ad0;color: #FFF;font-weight: bold;font-size: 16px;letter-spacing: 2px;padding: 5px 10px 4px 13px;}
+.int_hand:before {display: inline-block;content: " ";width: 24px;height: 25px;background: url(../imgs/int_hand.png) no-repeat;background-size: auto 100%;vertical-align: middle;}
+/*--interactive1.html--*/
+.interactive1_main {padding-top: 25%;}
+.int1_txt1 { height: 29px; color: transparent; background: url("../imgs/int1_txt1.png") 50% 50% no-repeat; background-size: auto 29px; }
+.int1_txt2 {margin: 10px 0 13px;}
+.int1_txt4 {display: inline-block; width: 63px; text-align: left; vertical-align: middle;}
+.int1_txt5 {display: inline-block;background: url(../imgs/int1_txt2.png) 50% 50% no-repeat;background-size: auto 56%;width: 122px;height: 12px;margin: 12px 0;padding: 6px 8px;border: 1px solid #77b0ce;color:transparent;}
+.int_imgwarp {position: relative;padding-top: 65%;background: url("../imgs/int2_bg1.png") 50% 0 no-repeat;background-size: 100% auto;}
+.int_rice {position: absolute;top: 4%;left: 0;right: 0;width: 90%;margin: 0 auto;}
+.int_btn1 { margin: -10px 0 10px; }
+.int1_btn {margin: 5px auto;}
+#int_num { display: inline; }
+#int_num span {font-weight: bold;font-size: 14px;border: 1px solid #f7f7f7;margin: 0 2px;padding: 0px 1px;}
+/*--interactive2.html--*/
+.interactive2_main2 { display: none; }
+#int2_file {position: absolute;left: -2000px;}
+.int2_txt1 {padding: 14% 0 6%;}
+.int2_txt2 {padding-top: 3.5%;}
+.interactive2_main2 {padding-top: 20%;}
+.int2_cvswarp {padding-top: 7px;height: 322px;margin-bottom: 8px;background: url("../imgs/int2_bg1.png") 50% 0 no-repeat;background-size: auto 322px;}
+#int2_cvs {display: block;margin: 0 auto; background: #000 url(../imgs/loading.gif) 50% 50% no-repeat; background-size: 12%;}
+#int2_rice {display: none;}
+.interactive2_main2 .int_btn {margin: 0 5px;padding: 8px 14px;}
+/*--interactive3.html--*/
+.interactive3_main {padding-top: 19%;}
+.interactive3_main .int_imgwarp {background-size: 50% auto;}
+.interactive3_main .int_rice {width: 45%;}
+.int3_img2 {margin-top: -30px;}
+.int3_txt1 {line-height: 20px;margin: 5% 0;}
+
+
+.interactive3_main {position: absolute;width: 100%;height: 100%;top: 0;/* z-index: 10; */}

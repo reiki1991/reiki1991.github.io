@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html><head>
+    <meta charset="UTF-8">
+    <title>花瓣纷飞</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <style type="text/css">
+        #swirling { position: absolute; background-color: #FFF; width: 100%; overflow: hidden; }
+        #swirling .piece3,#swirling .piece2,#swirling .piece1 { display:block; position:absolute; background-repeat:no-repeat; background-position:0 0; background-size:contain; }
+
+        #swirling .piece1 { background-image: url('./img/flower/piece1.png'); }
+        #swirling .piece1.style1 { width:25px; height:57px }
+        #swirling .piece1.style2 { width:20px; height:46px }
+        #swirling .piece1.style3 { width:15px; height:34px }
+        #swirling .piece2 { background-image: url('./img/flower/piece2.png'); }
+        #swirling .piece2.style1 { width:35px; height:38px }
+        #swirling .piece2.style2 { width:25px; height:28px }
+        #swirling .piece2.style3 { width:15px; height:17px }
+        #swirling .piece3 { background-image: url('./img/flower/piece3.png'); }
+        #swirling .piece3.style1 { width: 25px; height: 57px }
+        #swirling .piece3.style2 { width: 20px; height: 46px }
+        #swirling .piece3.style3 { width: 15px; height: 34px }
+        @-webkit-keyframes piece1 {
+            0% { opacity: .6; -webkit-transform: translateY(0) rotate3d(1,1,0,10deg); }
+            20% { opacity: 1; }
+            53% { -webkit-transform: translateX(-30px) translateY(350px) rotate3d(1,1,0,100deg); }
+            100% { opacity: 0; -webkit-transform: translateX(50px) translateY(800px) rotate3d(1,1,0,170deg); }
+        }
+        @-webkit-keyframes piece2 {
+            0% { opacity: .6; -webkit-transform: translateY(0) rotateY(10deg); }
+            20% { opacity: 1 }
+            100% { opacity: 0; -webkit-transform: translateY(800px) rotateY(-170deg); }
+        }
+        @-webkit-keyframes piece3 {
+            0% { opacity: .6; -webkit-transform: translateY(0) rotateX(30deg); }
+            20% { opacity: 1 }
+            53% { -webkit-transform: translateX(35px) translateY(350px) rotateX(-95deg); }
+            100% { opacity: 0; -webkit-transform: translateX(-40px) translateY(800px) rotateX(120deg); }
+        }
+    </style>
+    <style type="text/css">
+        #butterflys { position: absolute; width: 100%; overflow: hidden; z-index: 30; }
+        .butter1, .butter2, .butter3 {
+            position: relative;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+        }
+        .butter1 { -webkit-animation-name: butter1; -webkit-animation-duration: 6s; -webkit-transform: rotateZ(-30deg); }
+        .butter2 { -webkit-animation-name: butter2; -webkit-animation-duration: 8s; -webkit-transform: rotateZ(-30deg); }
+        .butter13 { -webkit-animation-name: butter3; -webkit-animation-duration: 5s; -webkit-transform: rotateZ(30deg); }
+        .butterfly1, .butterfly2, .butterfly3 {
+            position: absolute;
+            -webkit-animation-name: x-spin;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-linear;
+        }
+        .butterfly1 { height: 36px; -webkit-animation-duration: 0.4s; }
+        .butterfly2 { height: 40px; -webkit-animation-duration: 0.4s; }
+        .butterfly3 { height: 40px; -webkit-animation-duration: 0.32s; }
+
+        @-webkit-keyframes x-spin {
+            0%        { -webkit-transform: rotateX(0deg); }
+            20%        { -webkit-transform: rotateX(80deg); }
+            40%        { -webkit-transform: rotateX(130deg); }
+            50%        { -webkit-transform: rotateX(180deg); }
+            60%        { -webkit-transform: rotateX(210deg); }
+            80%        { -webkit-transform: rotateX(270deg); }
+            100%    { -webkit-transform: rotateX(360deg); }
+        }
+        @-webkit-keyframes butter1 {
+            0%        { opacity: 0; }
+            10%        { -webkit-transform: translate3d(1%,130px,0); opacity: 1; }
+            20%        { -webkit-transform: translate3d(8%,145px,0); }
+            30%        {  -webkit-transform: translate3d(15%,110px,0); }
+            60%        { -webkit-transform: translate3d(30%,15px,0); }
+            70%        { -webkit-transform: translate3d(46%,80px,0); }
+            80%        { -webkit-transform: translate3d(60%,180px,0); opacity: 0.6; }
+            100%    { -webkit-transform: translate3d(76%,230px,0); opacity: 0; }
+        }
+        @-webkit-keyframes butter2 {
+            0%        { opacity: 0; }
+            10%        { left: 5%; top: 40px; opacity: 1; }
+            40%        { left: 15%; top: 20px; }
+            50%        { left: 15%; top: 0px; }
+            60%        { left: 43%; top: -10px; }
+            80%        { left: 65%; top: 20px; opacity: 0.6; }
+            100%    { left: 70%; top: 30px; opacity: 0; }
+        }
+        @-webkit-keyframes butter3 {
+            0%        { opacity: 0; }
+            5%        { left: 92%; top: 130px; opacity: 1; }
+            20%        { left: 80%; top: 80px; }
+            40%        { left: 63%; top: 30px; }
+            60%        { left: 58%; top: 20px; }
+            70%        { left: 37%; top: 10px; opacity: 0.6; }
+            100%    { left: 24%; top: 60px; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+<div id="butterflys">
+    <div class="butter1">
+        <div class="butterfly1"><img src="http://www.w3cplus.com/sites/default/files/butterfly1.png" /></div>
+    </div>
+    <div class="butter2">
+        <div class="butterfly2"><img src="http://www.w3cplus.com/sites/default/files/butterfly2.png" /></div>
+    </div>
+    <div class="butter3">
+        <div class="butterfly3"><img src="http://www.w3cplus.com/sites/default/files/butterfly3.png" /></div>
+    </div>
+</div>
+<div id="swirling"></div>
+<script type="text/javascript">
+    var body_height = document.documentElement.clientHeight;
+    document.getElementById("swirling").style.height = body_height+"px";
+    document.getElementById("butterflys").style.height = body_height+"px";
+    /* swirling */
+    var pieces = [];
+    var piece_len = 10;
+    for(var i= 0; i < piece_len; i++){
+        pieces[i] = '<i class="piece'+Math.ceil(Math.random()*3)+' style'+Math.ceil(Math.random()*3)+'" style="left:'+Math.random()*359+1+'px; top:-'+(Math.random()*20+30)+'px; -webkit-animation: piece'+Math.ceil(Math.random()*3)+' '+Math.ceil(Math.random()*5+4)+'s linear '+Math.ceil(Math.random()*5)+'s infinite;"></i>';
+    }
+    document.getElementById("swirling").innerHTML = pieces.join("");
+</script>
+</body>
+</html>

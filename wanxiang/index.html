@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html><head>
+    <meta charset="UTF-8">
+    <title>万象城之约</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="fm_stage">
+    <div class="screen screen1">
+        <div class="screen1_top">
+            <div class="screen1_btn"><div class="screen1_circle1"></div></div>
+            <ul class="screen1_lights screen1_lightsT">
+                <img src="./img/screen1_lightL.png" class="screen1_lightL1" width="30"/>
+                <div class="t_r"><img src="./img/screen1_lightR.png" class="screen1_lightR2" width="32"/></div>
+            </ul>
+        </div>
+        <div class="screen1_bottom">
+            <ul class="screen1_lights screen1_lightsB">
+                <img src="./img/screen1_lightL.png" class="screen1_lightL2" width="41"/>
+                <div class="t_r"><img src="./img/screen1_lightR.png" class="screen1_lightR1" width="30"/></div>
+            </ul>
+        </div>
+    </div>
+    <div class="screen screen2">
+        <!--<img src="./img/screen2_top.gif" class="screen2_top"/>-->
+        <div class="screen2_btnbox">
+            <img src="./img/screen2_btnword.png" width="187"/>
+            <div class="screen2_circle1"></div>
+            <div class="screen2_circle2"></div>
+        </div>
+    </div>
+    <ul id="fm_list">
+        <li class="fm fm1 cur">
+            <div class="tag auto-x">
+                <div class="tag-1 full-img tag-1-move">购物满额赠礼</div>
+                <div class="tag-2 full-img tag-2-move">满2000赠100</div>
+                <div class="tag-3 full-img tag-3-move">11积分福利</div>
+                <div class="tag-4 full-img tag-4-move">11道半价风味</div>
+                <div class="tag-5 full-img tag-5-move">满2000赠100</div>
+                <div class="tag-6 full-img tag-6-move">11道半价风味</div>
+            </div>
+            <img src="./img/arrow-up.png" class="up_arrow"/>
+        </li>
+        <li class="fm fm2"><img src="./img/arrow-up.png" class="up_arrow"/></li>
+        <li class="fm fm3"><img src="./img/arrow-up.png" class="up_arrow"/></li>
+        <li class="fm fm4"><img src="./img/arrow-up.png" class="up_arrow"/></li>
+        <li class="fm fm5">
+            <div class="fm5_words">
+                <p class="fm_word1 fm_word1_1">点自己最想吃的菜，</p>
+                <p class="fm_word1 fm_word1_2">买让自己欣喜若狂的东西，</p>
+                <p class="fm_word1 fm_word1_3">见一直没空约的老朋友，</p>
+            </div>
+            <div class="white_shadow fm5_word2">我想要的，都在万象城!</div>
+            <img src="./img/arrow-up.png" class="up_arrow"/>
+        </li>
+        <li class="fm fm6">
+            <div class="ggk_con">
+                <div id="game_result">差一点就刮到了呢</div>
+                <div id="ggk_box"></div>
+            </div>
+            <img src="./img/fm6_phone.gif" width="93" class="fm6_phone"/>
+        </li>
+    </ul>
+</div>
+<div class="music on"></div>
+<audio src="./img/music1.mp3" id="audio_player" loop="loop" autoplay="autoplay">HTML5 Audio is not supported</audio>
+<script src="./js/jquery.1.9.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var body_width = document.documentElement.clientWidth;
+    var body_height = document.documentElement.clientHeight;
+    $(document).ready(function(){
+        $(".screen,.screen1_top,.screen1_bottom").css("width",body_width);
+        $(".fm_stage,.fm,.screen").css("height",body_height);
+        $(".screen1_top").css("height",body_height*0.44);
+        $(".screen1_bottom").css("height",body_height*0.56);
+        $(".screen1_circle1").bind("touchstart",function(){
+            $(".fm_stage").addClass("opening");
+            setTimeout(function(){ $(".screen1").remove(); },4800)
+        });
+        $(".screen2_btnbox").bind("touchstart",function(){
+            $(".screen2").addClass("moveing");
+            setTimeout(function(){ $(".screen2").remove(); },1200)
+        });
+        /*music play*/
+        $(".music").on("touchstart","",function(){
+            if(audio_player.paused){
+                audio_player.play(); $(".music").removeClass("off").addClass("on");
+            }else{
+                audio_player.pause(); $(".music").removeClass("on").addClass("off");
+            }
+        });
+        $('html').one('touchstart',function(){
+            if(audio_player.paused){ audio_player.play(); }
+        });
+    })
+    /*--------#fm_list move---------*/
+    $(function() {
+        var move_obj = $("#fm_list");
+        var starPoint,nowPoint,moveSpace;
+        var moveY_speed = 500;
+        var cur_index,move_space;
+        var fm = move_obj.children(".fm");
+        var fm_len = fm.length;
+        var min_move = 60;
+        var transformY = function(obj,value,time){
+            var time=time?time:0;
+            obj.css({'-webkit-transform':"translateY("+value+"px)",'-webkit-transition':time+'ms linear'});
+            setTimeout(function(){
+                fm.removeClass("cur").find(".animated").removeClass("in");
+                fm.eq(cur_index).addClass("cur").find(".animated").addClass("in");
+            },time)
+        }
+        var toucheventY = {
+            mystar: function(e){
+                if(e.touches[0].target.localName=="canvas") return;
+                e.stopPropagation();
+                e.preventDefault();
+                starPoint = e.touches[0].pageY;
+                cur_index = $(this).index();
+            },
+            mymove: function(e){
+                if(e.touches[0].target.localName=="canvas") return;
+                e.stopPropagation();
+                e.preventDefault();
+                nowPoint = e.touches[0].pageY;
+                moveSpace = nowPoint-starPoint;
+                move_space = -cur_index*body_height+moveSpace;
+                transformY(move_obj,move_space,0);
+            },
+            myend: function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                if(moveSpace<-min_move){
+                    if(cur_index<fm_len-1){ cur_index++; }
+                }else if(moveSpace>min_move){
+                    if(cur_index>0){ cur_index--; }
+                }
+                move_space = cur_index*body_height;
+                transformY(move_obj,-move_space,moveY_speed);
+                moveSpace = 0;
+            }
+        }
+        var init_touch = function(){
+            for(var i= 0,len=fm_len;i<fm_len;i++){
+                fm[i].addEventListener("touchstart", toucheventY.mystar);
+                fm[i].addEventListener("touchmove", toucheventY.mymove);
+                fm[i].addEventListener("touchend", toucheventY.myend);
+            }
+        }
+        init_touch();
+    });
+</script>
+<script src="./js/wScratchPad.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function() {
+        var award_txt = ["iphone6","差一点就刮到了"];
+        var award_num = 4;
+        var award_time; //剩余机会
+        var win_text;
+        var first = true;
+        $("#ggk_box").on("touchstart","",function(){
+            if(first){
+                first = false;
+                award_num = 0; //TODO award_num的值替换成后台获取到的值【0表示iphone6、4表示未中奖】
+                award_time = 1; //TODO 从后台获取"剩余抽奖次数"
+                $("#game_result").html(award_txt[award_num]);
+            }
+        })
+        $("#ggk_box").wScratchPad({
+            size:'15', //画笔大小
+            image2: './img/fm6_ggkbg.jpg',	//遮罩图
+            width: 226, //画布宽度
+            height: 54, //画布高度
+            overlay: 'none',
+            scratchUp: function(e, percent){
+                var _this = this;
+                if(percent > 60) {
+                    _this.clear();
+                    if(Number(award_num)==4){
+                        if(award_time>0){
+                            setTimeout(function(){ window.location.href = "index.html?"+Math.random(); },900);
+                            first = true;
+                            setTimeout(function(){ _this.reset(); },500);
+                        }else{
+                            setTimeout(function(){ window.location.href = "share.html";  },600);
+                        }
+                    }else if(Number(award_num)==0){
+                        setTimeout(function(){ window.location.href = "award.html?awardId="+award_num;  },600);
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

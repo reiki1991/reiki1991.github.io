@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html><head>
+    <meta charset="UTF-8">
+    <title>下雪</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <style type="text/css">
+        #swirling { position: absolute; background-color: #000000; width: 100%; overflow: hidden; }
+        #swirling .piece3,#swirling .piece2,#swirling .piece1 { display:block; position:absolute; background-repeat:no-repeat; background-position:0 0; background-size:contain; }
+
+        #swirling .piece1 { background-image: url('./img/snow/piece1.png'); }
+        #swirling .piece1.style1 { width:25px; height:57px }
+        #swirling .piece1.style2 { width:20px; height:46px }
+        #swirling .piece1.style3 { width:15px; height:34px }
+        #swirling .piece2 { background-image: url('./img/snow/piece2.png'); }
+        #swirling .piece2.style1 { width:35px; height:38px }
+        #swirling .piece2.style2 { width:25px; height:28px }
+        #swirling .piece2.style3 { width:15px; height:17px }
+        #swirling .piece3 { background-image: url('./img/snow/piece3.png'); }
+        #swirling .piece3.style1 { width: 25px; height: 57px }
+        #swirling .piece3.style2 { width: 20px; height: 46px }
+        #swirling .piece3.style3 { width: 15px; height: 34px }
+        @-webkit-keyframes snow {
+            0% { opacity: .6; -webkit-transform: translateY(0); }
+            20% { opacity: 1 }
+            100% { opacity: 0; -webkit-transform: translateY(800px); }
+        }
+    </style>
+</head>
+<body>
+<div id="swirling"></div>
+<script type="text/javascript">
+    var body_height = document.documentElement.clientHeight;
+    document.getElementById("swirling").style.height = body_height+"px";
+    /* swirling */
+    var pieces = [];
+    var piece_len = 12;
+    pieces[0] = '<i class="piece3 style3" style="left: 28%; top:-23px; -webkit-animation: snow 6s linear 0s infinite;"></i>';
+    pieces[1] = '<i class="piece1 style1" style="left: 62%; top:-33px; -webkit-animation: snow 9s linear 0.6s infinite;"></i>';
+    for(var i= 2; i < piece_len; i++){
+        pieces[i] = '<i class="piece'+Math.ceil(Math.random()*3)+' style'+Math.ceil(Math.random()*3)+'" style="left:'+Math.random()*99+'%; top:-'+(Math.random()*30+20)+'px; -webkit-animation: snow '+Math.ceil(Math.random()*5+4)+'s linear '+Math.ceil(Math.random()*5)+'s infinite;"></i>';
+    }
+    document.getElementById("swirling").innerHTML = pieces.join("");
+</script>
+</body>
+</html>
